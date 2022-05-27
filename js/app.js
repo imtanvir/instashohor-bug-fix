@@ -16,10 +16,9 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-    likedPostsId.plus(id); 
+    likedPostsId.push(id);
     showPosts(posts);
 };
-
 const reportPost = (id) => {
     reportedPostsId.push(id);
     const remainingPosts = posts.filter((post) => !reportedPostsId.includes(post.id));
@@ -37,14 +36,18 @@ const switchTab = (id) => {
         document.getElementById( "reported" ).style.display = "none";
     } else if (id === "liked") {
         document.getElementById( "liked" ).style.display = "block";
+        document.getElementById( "liked_post" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
+        document.getElementById( "reported_post" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
 
         displayLikedPosts();
     } else {
+        document.getElementById("reported_post").style.display = "block";
         document.getElementById( "reported" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "liked" ).style.display = "none";
+        document.getElementById( "liked_post" ).style.display = "none";
 
         displayReportedPosts();
     }
@@ -145,7 +148,8 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
-    const likedPosts = getLikedPosts();
+  const likedPosts = getLikedPosts();
+  document.getElementById('liked').innerHTML = '';
     likedPosts.forEach((post) => {
         const div = createPost(post);
         document.getElementById( "liked" ).appendChild(div);
