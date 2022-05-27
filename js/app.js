@@ -52,6 +52,7 @@ const switchTab = (id) => {
 
 const createPost = (post) => {
   const image = post.image;
+  const userName = post.comments[0].user;
   const userImage = post.userImage;
     const div = document.createElement( "article" );
     div.classList.add( "post" );
@@ -65,7 +66,7 @@ const createPost = (post) => {
                   >
                     <img src="${userImage}" alt="User Picture" />
                   </a>
-                  <a href="#" class="post__user">phero</a>
+                  <a href="#" class="post__user">${userName}</a>
                 </div>
 
                 <button class="post__more-options">
@@ -112,7 +113,7 @@ const createPost = (post) => {
                     </a>
 
                     <span>Liked by
-                      <a class="post__name--underline" href="#">user123</a> and
+                      <a class="post__name--underline" href="#">${userName}</a> and
                       <a href="#">73 others</a></span>
                   </div>
 
