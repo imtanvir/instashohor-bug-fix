@@ -3,6 +3,21 @@ let posts=[ ];
 const likedPostsId = [];
 const reportedPostsId = [];
 
+// Create some function 
+const likedPostTextShow = () => {
+  document.getElementById('like_txt').setAttribute('style', 'display:block');
+}
+const likedPostTextRemv = () => {
+  document.getElementById('like_txt').setAttribute('style', 'display:none');
+}
+
+const reportedPostTextShow = () => {
+  document.getElementById('report_txt').setAttribute('style', 'display:block');
+}
+const reportedPostTextremv = () => {
+  document.getElementById('report_txt').setAttribute('style', 'display:none');
+}
+
 const getLikedPosts = () => {
     return posts.filter((post) => likedPostsId.includes(post.id));
 };
@@ -36,18 +51,14 @@ const switchTab = (id) => {
         document.getElementById( "reported" ).style.display = "none";
     } else if (id === "liked") {
         document.getElementById( "liked" ).style.display = "block";
-        document.getElementById( "liked_post" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
-        document.getElementById( "reported_post" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
 
         displayLikedPosts();
     } else {
-        document.getElementById("reported_post").style.display = "block";
         document.getElementById( "reported" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "liked" ).style.display = "none";
-        document.getElementById( "liked_post" ).style.display = "none";
 
         displayReportedPosts();
     }
@@ -59,7 +70,7 @@ const createPost = (post) => {
   const userImage = post.userImage;
     const div = document.createElement( "article" );
     div.classList.add( "post" );
-    div.innerHTML = `
+  div.innerHTML = `
               <div class="post__header">
                 <div class="post__profile">
                   <a

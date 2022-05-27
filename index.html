@@ -51,15 +51,15 @@
                     id="navbarSupportedContent"
                 >
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-link active" role="button" onclick="switchTab( 'posts' )">
+                        <li class="nav-link active" role="button" onclick="switchTab( 'posts' );likedPostTextRemv();reportedPostTextremv();">
                             <i class="fa-solid fa-house"></i>
                         </li>
 
-                        <li class="nav-link active" role="button" onclick="switchTab( 'liked' )">
+                        <li class="nav-link active" role="button" onclick="switchTab( 'liked' );likedPostTextShow();reportedPostTextremv();">
                             <i class="fa-solid fa-heart text-danger"></i>
                         </li>
 
-                        <li class="nav-link active" role="button" onclick="switchTab( 'reported' )">
+                        <li class="nav-link active" role="button" onclick="switchTab( 'reported' );reportedPostTextShow();likedPostTextRemv();">
                             <i class="fa-solid fa-eye-slash"></i>
                         </li>
                     </ul>
@@ -69,17 +69,26 @@
         <main class="main container mx-auto p-3">
             <div id="posts">
             </div>
+
             <div id="liked_post">
-                <h1>Liked posts</h1>
-                <div id="liked">
-                </div>
+                    <h1 id="like_txt" style="display: none;">Liked posts</h1>
+                    <div id="liked"></div>
             </div>
 
             <div id="reported_post">
-                <h1>Reported posts</h1>
-                <div id="reported"></div>
+                <h1 id="report_txt" style="display: none";>Reported posts</h1>
+                <div id="reported">
+                </div>
+            </div>
             </div>
         </main>
+        <!-- Bonus section Q/A  -->
+        <section>
+            <p>Q1. How done js work?</p>
+            <article>Ans: JavaScript is a text-based programming language used both on the client-side and server-side. Its allows you to make web pages interactive. HTML and CSS are only use for making the website markup. On the other hand, JavaScript gives web pages interactive elements that engage a user. Javascript language source code is actually compiled. In the true sense of the word, in modern browsers.</article>
+              <p>Q1. How done js work?</p>
+            <article>Ans: JavaScript has a runtime model. It is based on an event loop. It is doing such kind of task like executing the code, collecting and processing events, and executing queued sub-tasks. But mainly an event loop is often the main loop in a program that typically waits for the user to trigger something.</article>
+        </section>
         <footer></footer>
 
         <!-- add javascript  file  -->
